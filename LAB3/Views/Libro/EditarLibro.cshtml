@@ -1,0 +1,45 @@
+﻿@model LAB3.Models.Libro
+
+@{
+    ViewData["Title"] = "Editar Libro";
+}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Editar Libro</h2>
+                    <form asp-action="EditarLibro" asp-controller="Libro">
+                        <input type="hidden" asp-for="CodigoLibro" />
+
+                        <div class="form-group">
+                            <label for="CodigoLibro">Código del Libro:</label>
+                            <input type="text" class="form-control" id="CodigoLibro" name="CodigoLibro" asp-for="CodigoLibro" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Titulo">Título:</label>
+                            <input type="text" class="form-control" id="Titulo" name="Titulo" asp-for="Titulo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Isbn">ISBN:</label>
+                            <input type="text" class="form-control" id="Isbn" name="Isbn" asp-for="Isbn" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="AnioEdicion">Año de Edición:</label>
+                            <input type="number" class="form-control" id="AnioEdicion" name="AnioEdicion" asp-for="AnioEdicion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Editorial">Editorial:</label>
+                            <input type="text" class="form-control" id="Editorial" name="Editorial" asp-for="Editorial" required>
+                        </div>
+                    
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

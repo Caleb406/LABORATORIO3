@@ -1,0 +1,57 @@
+﻿@model List<LAB3.Models.Libro>
+
+@{
+    ViewData["Title"] = "Lista de Libros";
+}
+
+<div class="container">
+    <div class="text-center mt-5">
+        <h1 class="display-4 text-primary">Bienvenido</h1>
+        <p class="lead text-info">Aprenda sobre <a href="https://docs.microsoft.com/aspnet/core" class="text-success">cómo crear aplicaciones web con ASP.NET Core</a>.</p>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header bg-warning text-white">
+            <h5>Lista de Libros</h5>
+        </div>
+        <div class="card-body">
+            <a class="btn btn-success btn-sm mb-3" href="/Libro/RegistroLibro">Crear Nuevo</a>
+
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Código del Libro</th>
+                        <th>Título</th>
+                        <th>ISBN</th>
+                        <th>Año de Edición</th>
+                        <th>Editorial</th>
+                        <th>Autores</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var libro in Model)
+                    {
+                        <tr>
+                            <td>@libro.CodigoLibro</td>
+                            <td>@libro.Titulo</td>
+                            <td>@libro.Isbn</td>
+                            <td>@libro.AnioEdicion</td>
+                            <td>@libro.Editorial</td>
+                            <td>
+                                @foreach(var librosAutores in libro.Autors)
+                                {
+                                 <div>@librosAutores.Autor1</div>   
+                                }
+                            </td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" asp-action="EditarLibro" asp-controller="Libro" asp-route-id="@libro.CodigoLibro">Editar</a>
+                                <a class="btn btn-danger btn-sm" asp-action="EliminarLibro" asp-controller="Libro" asp-route-id="@libro.CodigoLibro">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

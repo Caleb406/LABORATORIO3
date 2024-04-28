@@ -1,0 +1,34 @@
+﻿@model LAB3.Models.Libro
+
+@{
+    ViewData["Title"] = "Eliminar Libro";
+}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Eliminar Libro</h2>
+                    <p class="text-center">¿Estás seguro de que deseas eliminar este libro?</p>
+                    <form asp-action="EliminarLibro" asp-controller="Libro">
+                        <input type="hidden" asp-for="CodigoLibro" />
+
+                        <div class="form-group">
+                            <label for="CodigoLibro">Código del Libro:</label>
+                            <input type="text" class="form-control" id="CodigoLibro" name="CodigoLibro" asp-for="CodigoLibro" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Titulo">Título:</label>
+                            <input type="text" class="form-control" id="Titulo" name="Titulo" asp-for="Titulo" readonly>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <a href="/Libro/Index" class="btn btn-secondary">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
